@@ -7,6 +7,8 @@ WORKDIR /usr/src
 # copia o diretório atual para a workdir definida acima
 COPY . .
 
+RUN ln -s /usr/lib/libssl.so.3 /lib/libssl.so.3
+
 # "expõe" a porta 5000
 EXPOSE 5000
 
