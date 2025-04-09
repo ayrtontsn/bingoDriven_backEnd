@@ -6,7 +6,7 @@
     "start": "npm run prisma:migrate:deploy && node dist/src/server.js",
     "dev": "ts-node-dev src/server.ts",
     "test:load-envs": "dotenv -e .env.test",
-    "test": "npm run prisma:migrate:deploy & npm run test:load-envs jest -- -i",
+    "test": "npm run prisma:migrate:deploy && npm run test:load-envs jest -- --runInBand",
     "test:ci": "npm run test",
     "test:migration": "npm run test:load-envs prisma migrate deploy",
     "test:coverage": "npm run test -- --coverage",
@@ -16,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^5.16.1",
+    "@prisma/client": "^6.6.0",
     "@types/jest": "^29.5.12",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
