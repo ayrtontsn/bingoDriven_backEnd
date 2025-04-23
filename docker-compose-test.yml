@@ -4,6 +4,8 @@ services:
     container_name: postgres
     ports:
       - 5432:5432
+    networks:
+      - mynetwork
     env_file:
       - .env.test
     healthcheck:
@@ -19,8 +21,14 @@ services:
       dockerfile: Dockerfile
     ports:
       - 5000:5000
+    networks:
+      - mynetwork
     env_file:
       - .env.test
     depends_on:
       postgres:
         condition: service_healthy
+
+networks:
+  mynetwork:
+    name: mynetwork
